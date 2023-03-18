@@ -1,0 +1,13 @@
+---
+ - hosts: localhost
+   connection: local
+   tasks:
+   - name: including variables
+     include_vars:
+       file: Mediawiki-Ansible-Automation-vars.yml
+
+   - name: Create a Mediawiki directory
+     become: yes
+     file:
+       path: "{{ mw_path }}"
+       state: directory
